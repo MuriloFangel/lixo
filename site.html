@@ -33,14 +33,16 @@
         .container {
             background-color: #ffffff;
             max-width: 800px;
+            width: 100%; /* Garante que o container não ultrapasse a tela */
             padding: 40px 50px;
             border-radius: 12px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInSlideUp 1s forwards ease-out;
+            opacity: 0; /* Começa invisível */
+            transform: translateY(20px); /* Começa levemente abaixo */
+            animation: fadeInSlideUp 1s forwards ease-out; /* Animação de entrada */
         }
 
+        /* ANIMAÇÃO DE ENTRADA DO CONTAINER */
         @keyframes fadeInSlideUp {
             to {
                 opacity: 1;
@@ -56,8 +58,8 @@
             color: #222;
             text-align: center;
             margin-bottom: 25px;
-            opacity: 0;
-            animation: fadeIn 1s 0.5s forwards ease-out;
+            opacity: 0; /* Começa invisível */
+            animation: fadeIn 1s 0.5s forwards ease-out; /* Animação com delay */
         }
 
         h2 {
@@ -68,8 +70,8 @@
             margin-bottom: 20px;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
-            opacity: 0;
-            animation: fadeIn 1s 2s forwards ease-out;
+            opacity: 0; /* Começa invisível */
+            animation: fadeIn 1s 2s forwards ease-out; /* Animação com delay */
         }
 
         /* Destaque "ARTE" no título */
@@ -82,12 +84,18 @@
             margin-bottom: 20px;
             font-size: 1.1em;
             color: #444;
-            opacity: 0;
-            /* Animação escalonada */
-            animation: fadeIn 1s forwards ease-out;
+            opacity: 0; /* Começa invisível */
+            animation: fadeIn 1s forwards ease-out; /* Animação de entrada */
         }
 
-        /* Animações de parágrafos escalonadas */
+        /* ANIMAÇÃO BÁSICA DE FADE-IN (USADA VÁRIAS VEZES) */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animações de parágrafos escalonadas (com delays) */
         .animated-p { opacity: 0; animation: fadeIn 1s forwards ease-out; }
         .p1 { animation-delay: 1.8s; }
         .p2 { animation-delay: 2.0s; }
@@ -114,6 +122,7 @@
             vertical-align: baseline; /* Alinha o texto com o cursor */
             line-height: 1.2; /* Garante que o cursor não seja cortado */
             margin-bottom: 25px;
+            opacity: 0; /* Começa invisível */
             animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
             animation-fill-mode: forwards;
             animation-delay: 0.8s; /* Inicia após o H1 aparecer */
@@ -121,8 +130,8 @@
         }
 
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            from { width: 0; opacity: 1; }
+            to { width: 100%; opacity: 1; }
         }
 
         @keyframes blink-caret {
@@ -137,8 +146,8 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeIn 1s 2.2s forwards ease-out;
+            opacity: 0; /* Começa invisível */
+            animation: fadeIn 1s 2.2s forwards ease-out; /* Animação com delay */
         }
 
         .ig-link {
@@ -172,8 +181,8 @@
         /* * --- SEÇÃO ACADÊMICA E ODS ---
          */
         .academic-info, .ods-info {
-            opacity: 0;
-            animation: fadeIn 1s 2.4s forwards ease-out;
+            opacity: 0; /* Começa invisível */
+            animation: fadeIn 1s 2.4s forwards ease-out; /* Animação com delay */
         }
 
         .ods-info {
@@ -257,7 +266,7 @@
 
     <svg width="0" height="0" style="position:absolute; display:none;">
         <symbol id="icon-instagram" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97 1.315-.056 1.688-.067 4.947-.067s3.632.012 4.947.067c.056 1.315.067 1.688.067 4.947s-.012 3.632-.067 4.947c-.149 3.36-2.607 5.817-5.97 5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149-5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607-5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97 1.315-.056 1.688-.067 4.947-.067s3.632.012 4.947.067c.056 1.315.067 1.688.067 4.947s-.012 3.632-.067 4.947c-.149 3.36-2.607 5.817-5.97 5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149-5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607 5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
             <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
             <circle cx="16.96" cy="7.04" r="1.144"/>
         </symbol>
