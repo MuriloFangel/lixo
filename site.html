@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DescART: O Lixo Que Carregamos</title>
+    <title>DescARTE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Reset Básico */
+        /* * --- GERAL ---
+         */
         * {
             margin: 0;
             padding: 0;
@@ -17,221 +18,315 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #333;
-            background-color: #f8f8f8;
-            padding: 20px;
+            background-color: #f4f4f4; /* Fundo ligeiramente texturizado */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
+        /* * --- CONTAINER PRINCIPAL ---
+         */
         .container {
-            background-color: #fff;
+            background-color: #ffffff;
             max-width: 800px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            opacity: 0; /* Começa invisível para a animação de fade-in */
-            transform: translateY(20px); /* Levemente abaixo para a animação */
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(20px);
             animation: fadeInSlideUp 1s forwards ease-out;
         }
 
         @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        /* * --- TIPOGRAFIA E TÍTULOS ---
+         */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
-            color: #1a1a1a;
+            font-size: 3.2em;
+            color: #222;
             text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            animation: bounceIn 1s forwards ease-out;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 1; }
-            70% { transform: scale(0.98); }
-            100% { transform: scale(1); }
-        }
-
-        h1::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #6a057e; /* Cor vibrante para o sublinhado */
-            margin: 15px auto 0;
-            border-radius: 2px;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 1s 0.5s forwards ease-out;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8em;
-            color: #444;
+            color: #333;
             margin-top: 40px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
-            animation: fadeIn 1s forwards ease-out;
-            animation-delay: 1.5s;
+            opacity: 0;
+            animation: fadeIn 1s 2s forwards ease-out;
+        }
+
+        /* Destaque "ARTE" no título */
+        .highlight-arte {
+            color: #2c5b4c; /* Verde artístico/terroso */
+            font-style: italic;
         }
 
         p {
             margin-bottom: 20px;
             font-size: 1.1em;
-            color: #555;
-            animation: fadeIn 1s forwards ease-out;
-            animation-delay: 2s;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 30px;
-            animation: fadeIn 1s forwards ease-out;
-            animation-delay: 2.5s;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-            font-size: 1.05em;
-            color: #555;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        ul li::before {
-            content: '•';
-            color: #6a057e;
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .highlight {
-            font-weight: 700;
-            color: #6a057e;
-        }
-
-        /* Animação de digitação para o texto inicial */
-        #typing-effect {
-            display: inline-block;
-            overflow: hidden; /* Garante que o texto não apareça antes da hora */
-            white-space: nowrap; /* Impede a quebra de linha */
-            border-right: .15em solid #6a057e; /* Cursor piscante */
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2em;
             color: #444;
+            opacity: 0;
+            /* Animação escalonada */
+            animation: fadeIn 1s forwards ease-out;
+        }
+
+        /* Animações de parágrafos escalonadas */
+        .animated-p { opacity: 0; animation: fadeIn 1s forwards ease-out; }
+        .p1 { animation-delay: 1.8s; }
+        .p2 { animation-delay: 2.0s; }
+        .p3 { animation-delay: 2.2s; }
+        .p4 { animation-delay: 2.4s; }
+        .p5 { animation-delay: 2.6s; }
+        .p6 { animation-delay: 2.8s; }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #2c5b4c;
+        }
+
+        /* * --- EFEITO DE DIGITAÇÃO (CORRIGIDO) ---
+         */
+        #typing-effect {
+            font-size: 1.25em;
+            color: #111;
+            font-weight: 600;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid #2c5b4c; /* Cursor */
+            vertical-align: baseline; /* Alinha o texto com o cursor */
+            line-height: 1.2; /* Garante que o cursor não seja cortado */
             margin-bottom: 25px;
             animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
-            animation-fill-mode: forwards; /* Garante que o estado final seja mantido */
-            max-width: 100%; /* Garante que não transborde em telas pequenas */
+            animation-fill-mode: forwards;
+            animation-delay: 0.8s; /* Inicia após o H1 aparecer */
+            max-width: 100%; 
         }
 
-        /* Animação para o efeito de digitação */
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
 
-        /* Animação para o cursor piscante */
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #6a057e; }
+            50% { border-color: #2c5b4c; }
+        }
+        
+        /* * --- SEÇÃO DE REALIZAÇÃO (INSTAGRAM) ---
+         */
+        .realizacao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 1s 2.2s forwards ease-out;
         }
 
+        .ig-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-        /* Responsividade */
+        .ig-link:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .ig-link svg {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+            transition: fill 0.3s ease;
+        }
+
+        .ig-link:hover svg {
+            fill: #2c5b4c;
+        }
+
+        /* * --- SEÇÃO ACADÊMICA E ODS ---
+         */
+        .academic-info, .ods-info {
+            opacity: 0;
+            animation: fadeIn 1s 2.4s forwards ease-out;
+        }
+
+        .ods-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            animation-delay: 2.6s;
+        }
+
+        .ods-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+        
+        .ods-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95em;
+        }
+
+        .ods-item svg {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        /* * --- RESPONSIVIDADE ---
+         */
         @media (max-width: 768px) {
             .container {
-                padding: 30px 20px;
+                padding: 30px 25px;
             }
             h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             h2 {
-                font-size: 1.5em;
+                font-size: 1.6em;
             }
-            p, ul li {
+            p {
                 font-size: 1em;
+            }
+            #typing-effect {
+                font-size: 1.1em;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                padding: 15px;
+                padding: 10px;
             }
             .container {
-                padding: 25px 15px;
-                border-radius: 5px;
+                padding: 25px 20px;
             }
             h1 {
-                font-size: 1.8em;
-                margin-bottom: 20px;
-            }
-            h1::after {
-                width: 60px;
-                margin-top: 10px;
+                font-size: 2em;
             }
             h2 {
-                font-size: 1.3em;
-                margin-top: 30px;
+                font-size: 1.4em;
             }
-            p {
-                margin-bottom: 15px;
+            .realizacao-grid {
+                grid-template-columns: 1fr; /* Coluna única */
             }
-            #typing-effect {
-                font-size: 1em;
+            .ods-container {
+                gap: 15px;
+            }
+            .ods-item {
+                font-size: 0.9em;
+            }
+            .ods-item svg {
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
 </head>
 <body>
 
+    <svg width="0" height="0" style="position:absolute; display:none;">
+        <symbol id="icon-instagram" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97 1.315-.056 1.688-.067 4.947-.067s3.632.012 4.947.067c.056 1.315.067 1.688.067 4.947s-.012 3.632-.067 4.947c-.149 3.36-2.607 5.817-5.97 5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149-5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607-5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
+            <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
+            <circle cx="16.96" cy="7.04" r="1.144"/>
+        </symbol>
+        <symbol id="icon-ods11" viewBox="0 0 100 100">
+            <path fill="#FB9D24" d="M80,80h10V40H80V80z M70,80h10V50H70V80z M60,80h10V60H60V80z M50,80h10V30H50V80z M40,80h10V50H40V80z M30,80h10V60H30V80z M20,80h10V40H20V80z M10,80h10V50H10V80z M10,30h10v10H10V30z M20,20h10v10H20V20z M30,40h10v10H30V40z M40,30h10v10H40V30z M40,10h10v10H40V10z M50,20h10v10H50V20z M60,30h10v10H60V30z M60,50h10v10H60V50z M70,20h10v10H70V20z M70,40h10v10H70V40z M80,30h10v10H80V30z M80,10h10v10H80V10z"/>
+        </symbol>
+        <symbol id="icon-ods12" viewBox="0 0 100 100">
+            <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7,1.7-1.7,4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7,4.4,0,6.1l4,4c1.7,1.7,4.4,1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3,3.1L78.3,73.4c-1.7,1.7-4.4,1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
+        </symbol>
+    </svg>
+
+
     <div class="container">
-        <h1>Desc<span class="highlight">ART</span>E</h1>
+        <h1>Desc<span class="highlight-arte">ARTE</span></h1>
 
-        <p id="typing-effect" class=""></p>
+        <p id="typing-effect"></p>
 
-        <p>Na correria do dia a dia, tendemos a ignorá-lo, a desviar o olhar (mesmo que nos incomode) e a tratá-lo como algo que simplesmente "desaparece". </p>
-        <p>Essa proposta é um dos convites do nosso projeto, para fazer o oposto: <span class="highlight">olhar.</span></p>
-        <p>Ao prender aqui o resíduo que você carrega, você força esse item a ser visto.</p>
+        <section class="manifesto">
+            <p class="animated-p p1">Na correria do dia a dia, tendemos a ignorá-lo, a desviar o olhar (mesmo que nos incomode) e a tratá-lo como algo que simplesmente "desaparece".</p>
+            <p class="animated-p p2">Essa proposta é um dos convites do nosso projeto, para fazer o oposto: <span class="highlight-text">olhar.</span></p>
+            <p class="animated-p p3">Ao prender aqui o resíduo que você carrega, você força esse item a ser visto.</p>
+            <p class="animated-p p4">Este trabalho não quer chamar atenção apenas para o <span class="highlight-text">que</span> é lixo, mas para <span class="highlight-text">qual</span> lixo. O que o seu descarte diz sobre você? O que ele revela sobre o seu consumo, seus hábitos, sua rotina?</p>
+            <p class="animated-p p5">Este mural faz parte do projeto <span class="highlight-text">DescART</span>. Ao analisar, manipular e expor os resíduos que produzimos, carregamos e descartamos na cidade, perguntamos: <span class="highlight-text">o que o nosso lixo diz sobre nós, sobre nossa cidade, sobre nossas diferenças sociais?</span></p>
+        </section>
 
-        <p>Este trabalho não quer chamar atenção apenas para o <span class="highlight">o que</span> é lixo, mas para <span class="highlight">qual</span> lixo.</p>
-        <p>O que o seu descarte diz sobre você? O que ele revela sobre o seu consumo, seus hábitos, sua rotina?</p>
+        <section class="realizacao">
+            <h2>Realização</h2>
+            <div class="realizacao-grid">
+                <a href="https://www.instagram.com/anelizez/" target="_blank" rel="noopener noreferrer" class="ig-link">
+                    <svg><use href="#icon-instagram"></use></svg>
+                    @anelizez
+                </a>
+                <a href="https://www.instagram.com/eusoutriz_/" target="_blank" rel="noopener noreferrer" class="ig-link">
+                    <svg><use href="#icon-instagram"></use></svg>
+                    @eusoutriz_
+                </a>
+                <a href="https://www.instagram.com/leonrwdo/" target="_blank" rel="noopener noreferrer" class="ig-link">
+                    <svg><use href="#icon-instagram"></use></svg>
+                    @leonrwdo
+                </a>
+                <a href="https://www.instagram.com/melbi_bingo/" target="_blank" rel="noopener noreferrer" class="ig-link">
+                    <svg><use href="#icon-instagram"></use></svg>
+                    @melbi_bingo
+                </a>
+                <a href="https://www.instagram.com/muri_lo.fm/" target="_blank" rel="noopener noreferrer" class="ig-link">
+                    <svg><use href="#icon-instagram"></use></svg>
+                    @muri_lo.fm
+                </a>
+            </div>
+        </section>
 
-        <h2>Sobre o Projeto</h2>
-        <p>Este mural faz parte do projeto <span class="highlight">DescART</span>. Ao analisar, manipular e expor os resíduos que produzimos, carregamos e descartamos na cidade, perguntamos: o que o nosso lixo diz sobre nós, sobre nossa cidade, sobre nossas diferenças sociais?</p>
-        <p>O lixo que ignoramos afeta diretamente nossas vidas, nossa saúde coletiva e a estética da nossa cidade.</p>
+        <section class="academic-info">
+            <p class="animated-p p6">Estudantes do curso de <span class="highlight-text">Licenciatura em Artes Visuais</span> da Faculdade de Artes do Paraná (FAP), UNESPAR - Campus de Curitiba II.</p>
+        </section>
+        
+        <section class="ods-info">
+            <p>O projeto dialoga com os Objetivos de Desenvolvimento Sustentável (ODS) da ONU:</p>
+            <div class="ods-container">
+                <div class="ods-item">
+                    <svg><use href="#icon-ods11"></use></svg>
+                    <span><strong>ODS 11:</strong> Cidades e comunidades sustentáveis</span>
+                </div>
+                <div class="ods-item">
+                    <svg><use href="#icon-ods12"></use></svg>
+                    <span><strong>ODS 12:</strong> Consumo e produção responsáveis</span>
+                </div>
+            </div>
+        </section>
 
-
-        <h2>Realização</h2>
-        <ul>
-            <li>Anelize Nunes Ferreira</li>
-            <li>Beatriz Kopp Arantes Agria Tiozo de Carvalho</li>
-            <li>Leonardo Pinheiro de Barros</li>
-            <li>Melbi Ferreira de Jesus</li>
-            <li>Murilo Fangel de Morais</li>
-        </ul>
-        <p>Estudantes do curso de <span class="highlight">Licenciatura em Artes Visuais</span> da Faculdade de Artes do Paraná (FAP), UNESPAR - Campus de Curitiba II.</p>
-
-        <p>O projeto dialoga com os Objetivos de Desenvolvimento Sustentável (ODS) da ONU, especialmente <span class="highlight">"Cidades e comunidades sustentáveis" (ODS 11)</span> e <span class="highlight">"Consumo e produção responsáveis" (ODS 12)</span>.</p>
     </div>
 
     <script>
@@ -248,12 +343,12 @@
             } else {
                 // Quando terminar de digitar, remova a animação do cursor
                 typingEffectElement.style.borderRight = 'none';
+                typingEffectElement.style.animation = 'none'; // Para o "blink"
             }
         }
 
-        // Delay para iniciar a digitação depois que o contêiner principal já apareceu
-        // Isso sincroniza com a animação CSS do container
-        setTimeout(typeWriter, 1200);
+        // Delay para iniciar a digitação (sincronizado com as animações CSS)
+        setTimeout(typeWriter, 1200); 
     </script>
 
 </body>
