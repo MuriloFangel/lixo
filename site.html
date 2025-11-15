@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algo Incrível Está Chegando...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
-    
+    <title>DescART: O Lixo Que Carregamos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* CSS Reset Básico */
         * {
@@ -14,220 +15,245 @@
             box-sizing: border-box;
         }
 
-        body, html {
-            height: 100%;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-            background: #000004; /* Fundo escuro profundo */
-            color: #fff;
-            overflow: hidden; /* Impede barras de rolagem */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* O Canvas do Particles.js - Nosso Fundo Dinâmico */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1; /* Fica atrás do conteúdo */
-        }
-
-        /* Conteúdo Centralizado */
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2; /* Fica na frente do fundo */
-            text-align: center;
-            width: 90%;
+        .container {
+            background-color: #fff;
             max-width: 800px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* Começa invisível para a animação de fade-in */
+            transform: translateY(20px); /* Levemente abaixo para a animação */
+            animation: fadeInSlideUp 1s forwards ease-out;
         }
 
-        /* Título Principal com Gradiente Animado */
-        h1 {
-            font-size: 5rem;
-            font-weight: 700;
-            /* A mágica do texto em gradiente */
-            background: linear-gradient(90deg, #00c6ff, #ff00ff, #00c6ff);
-            background-size: 200% auto;
-            color: #fff;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            /* Animação do gradiente */
-            animation: textflow 5s linear infinite;
-            
-            /* Sombra para dar profundidade */
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(0, 200, 255, 0.5);
-        }
-
-        /* Subtítulo */
-        p {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-top: 15px;
-            opacity: 0.8;
-        }
-
-        /* Animação do "Loader" */
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            border-top: 5px solid #00c6ff; /* Cor do spinner */
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 40px auto 0;
-        }
-
-        /* Animação Keyframes */
-
-        /* Animação do Gradiente de Texto */
-        @keyframes textflow {
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
             to {
-                background-position: 200% center;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Animação de Rotação do Loader */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            animation: bounceIn 1s forwards ease-out;
+            animation-delay: 0.5s;
         }
 
-        /* Ajustes para Telas Pequenas (Celulares) */
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.98); }
+            100% { transform: scale(1); }
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #6a057e; /* Cor vibrante para o sublinhado */
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #444;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            animation: fadeIn 1s forwards ease-out;
+            animation-delay: 1.5s;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #555;
+            animation: fadeIn 1s forwards ease-out;
+            animation-delay: 2s;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+            animation: fadeIn 1s forwards ease-out;
+            animation-delay: 2.5s;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #555;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '•';
+            color: #6a057e;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #6a057e;
+        }
+
+        /* Animação de digitação para o texto inicial */
+        #typing-effect {
+            display: inline-block;
+            overflow: hidden; /* Garante que o texto não apareça antes da hora */
+            white-space: nowrap; /* Impede a quebra de linha */
+            border-right: .15em solid #6a057e; /* Cursor piscante */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            color: #444;
+            margin-bottom: 25px;
+            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+            animation-fill-mode: forwards; /* Garante que o estado final seja mantido */
+            max-width: 100%; /* Garante que não transborde em telas pequenas */
+        }
+
+        /* Animação para o efeito de digitação */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* Animação para o cursor piscante */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #6a057e; }
+        }
+
+
+        /* Responsividade */
         @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
             h1 {
-                font-size: 3rem; /* Diminui o título */
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            p, ul li {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 25px 15px;
+                border-radius: 5px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            h1::after {
+                width: 60px;
+                margin-top: 10px;
+            }
+            h2 {
+                font-size: 1.3em;
+                margin-top: 30px;
             }
             p {
-                font-size: 1.1rem; /* Diminui o subtítulo */
+                margin-bottom: 15px;
             }
-            .loader {
-                width: 40px;
-                height: 40px;
+            #typing-effect {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
 
-    <div id="particles-js"></div>
+    <div class="container">
+        <h1>Desc<span class="highlight">ART</span>E</h1>
 
-    <div class="content">
-        <h1>EM BREVE</h1>
-        <p>Estamos construindo algo revolucionário.</p>
-        <div class="loader"></div>
+        <p id="typing-effect" class=""></p>
+
+        <p>Na correria do dia a dia, tendemos a ignorá-lo, a desviar o olhar (mesmo que nos incomode) e a tratá-lo como algo que simplesmente "desaparece". </p>
+        <p>Essa proposta é um dos convites do nosso projeto, para fazer o oposto: <span class="highlight">olhar.</span></p>
+        <p>Ao prender aqui o resíduo que você carrega, você força esse item a ser visto.</p>
+
+        <p>Este trabalho não quer chamar atenção apenas para o <span class="highlight">o que</span> é lixo, mas para <span class="highlight">qual</span> lixo.</p>
+        <p>O que o seu descarte diz sobre você? O que ele revela sobre o seu consumo, seus hábitos, sua rotina?</p>
+
+        <h2>Sobre o Projeto</h2>
+        <p>Este mural faz parte do projeto <span class="highlight">DescART</span>. Ao analisar, manipular e expor os resíduos que produzimos, carregamos e descartamos na cidade, perguntamos: o que o nosso lixo diz sobre nós, sobre nossa cidade, sobre nossas diferenças sociais?</p>
+        <p>O lixo que ignoramos afeta diretamente nossas vidas, nossa saúde coletiva e a estética da nossa cidade.</p>
+
+
+        <h2>Realização</h2>
+        <ul>
+            <li>Anelize Nunes Ferreira</li>
+            <li>Beatriz Kopp Arantes Agria Tiozo de Carvalho</li>
+            <li>Leonardo Pinheiro de Barros</li>
+            <li>Melbi Ferreira de Jesus</li>
+            <li>Murilo Fangel de Morais</li>
+        </ul>
+        <p>Estudantes do curso de <span class="highlight">Licenciatura em Artes Visuais</span> da Faculdade de Artes do Paraná (FAP), UNESPAR - Campus de Curitiba II.</p>
+
+        <p>O projeto dialoga com os Objetivos de Desenvolvimento Sustentável (ODS) da ONU, especialmente <span class="highlight">"Cidades e comunidades sustentáveis" (ODS 11)</span> e <span class="highlight">"Consumo e produção responsáveis" (ODS 12)</span>.</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
     <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 100, // Quantidade de partículas
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#00c6ff" // Cor das partículas
-                },
-                "shape": {
-                    "type": "circle", // Formato (círculo, estrela, etc.)
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.2, // Opacidade das linhas
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2, // Velocidade de movimento
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse" // Efeito ao passar o mouse
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push" // Efeito ao clicar
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 150, // Distância que as partículas fogem do mouse
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4 // Quantas partículas "explodem" ao clicar
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
+        const textToType = "O lixo costuma ser invisível.";
+        const typingEffectElement = document.getElementById('typing-effect');
+        let i = 0;
+        const speed = 70; // Velocidade de digitação em ms
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                typingEffectElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Quando terminar de digitar, remova a animação do cursor
+                typingEffectElement.style.borderRight = 'none';
+            }
+        }
+
+        // Delay para iniciar a digitação depois que o contêiner principal já apareceu
+        // Isso sincroniza com a animação CSS do container
+        setTimeout(typeWriter, 1200);
     </script>
 
 </body>
