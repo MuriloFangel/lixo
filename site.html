@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DescARTE</title>
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Descarte</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -37,13 +37,12 @@
             padding: 40px 50px;
             border-radius: 12px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            /* Animações removidas - tudo visível por padrão */
         }
 
         /* * --- TIPOGRAFIA E TÍTULOS ---
          */
         h1 {
-            font-family: 'Playfair+Display', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 3.2em;
             color: #222;
             text-align: center;
@@ -51,7 +50,7 @@
         }
 
         h2 {
-            font-family: 'Playfair+Display', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.8em;
             color: #333;
             margin-top: 40px;
@@ -60,7 +59,7 @@
             padding-bottom: 10px;
         }
 
-        /* Destaque "ARTE" no título */
+        /* Destaque "arte" no título e no texto */
         .highlight-arte {
             color: #2c5b4c;
             font-style: italic;
@@ -70,10 +69,8 @@
             margin-bottom: 20px;
             font-size: 1.1em;
             color: #444;
-            /* Animações removidas */
         }
         
-        /* Texto que substitui a digitação */
         .intro-text {
             font-size: 1.25em;
             color: #111;
@@ -90,47 +87,33 @@
          */
         .realizacao-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Ajustado para caber mais links se necessário, ou apenas 1 por linha em telas pequenas */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
 
         .ig-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            /* Estilo de link claro */
             text-decoration: none;
-            color: #333;
+            color: #2c5b4c; /* Cor de destaque para indicar link */
             font-weight: 600;
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, text-decoration 0.3s ease;
         }
 
         .ig-link:hover {
             background-color: #f0f0f0;
-            transform: translateY(-2px);
-            color: #2c5b4c; /* O SVG herdará esta cor no hover */
-        }
-
-        .ig-link svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            /* A cor é herdada do 'color' do link <a> */
-        }
-
-        /* * --- SEÇÃO ACADÊMICA E ODS ---
-         */
-        .academic-info {
-            /* Animações removidas */
+            text-decoration: underline; /* Sublinhado no hover */
         }
         
+        /* * --- SEÇÃO ACADÊMICA E ODS ---
+         */
         .ods-info {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #eee;
-            /* Animações removidas */
         }
 
         .ods-container {
@@ -182,13 +165,14 @@
                 padding: 25px 20px;
             }
             h1 {
-                font-size: 2em;
+                font-size: 2.2em; /* Aumentado ligeiramente para 'Descarte' */
             }
             h2 {
                 font-size: 1.4em;
             }
             .realizacao-grid {
                 grid-template-columns: 1fr; /* Coluna única */
+                gap: 5px; /* Menor espaçamento */
             }
             .ods-container {
                 gap: 15px;
@@ -206,7 +190,7 @@
 <body>
 
     <div class="container">
-        <h1>Desc<span class="highlight-arte">ARTE</span></h1>
+        <h1>Desc<span class="highlight-arte">arte</span></h1>
 
         <p class="intro-text">O lixo costuma ser invisível.</p>
 
@@ -215,7 +199,8 @@
             <p>Essa proposta é um dos convites do nosso projeto, para fazer o oposto: <span class="highlight-text">olhar.</span></p>
             <p>Ao prender aqui o resíduo que você carrega, você força esse item a ser visto.</p>
             <p>Este trabalho não quer chamar atenção apenas para o <span class="highlight-text">que</span> é lixo, mas para <span class="highlight-text">qual</span> lixo. O que o seu descarte diz sobre você? O que ele revela sobre o seu consumo, seus hábitos, sua rotina?</p>
-            <p>Este mural faz parte do projeto <span class="highlight-text">DescART</span>. Ao analisar, manipular e expor os resíduos que produzimos, carregamos e descartamos na cidade, perguntamos: <span class="highlight-text">o que o nosso lixo diz sobre nós, sobre nossa cidade, sobre nossas diferenças sociais?</span></p>
+            
+            <p>Este mural faz parte do projeto <span class="highlight-text">Desc<span class="highlight-arte">arte</span></span>. Ao analisar, manipular e expor os resíduos que produzimos, carregamos e descartamos na cidade, perguntamos: <span class="highlight-text">o que o nosso lixo diz sobre nós, sobre nossa cidade, sobre nossas diferenças sociais?</span></p>
         </section>
 
         <section class="realizacao">
@@ -223,50 +208,25 @@
             <div class="realizacao-grid">
                 
                 <a href="https://www.instagram.com/anelizez/" target="_blank" rel="noopener noreferrer" class="ig-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149-5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607 5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
-                        <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
-                        <circle cx="16.96" cy="7.04" r="1.144"/>
-                    </svg>
                     @anelizez
                 </a>
                 <a href="https://www.instagram.com/eusoutriz_/" target="_blank" rel="noopener noreferrer" class="ig-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149 5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607 5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
-                        <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
-                        <circle cx="16.96" cy="7.04" r="1.144"/>
-                    </svg>
                     @eusoutriz_
                 </a>
                 <a href="https://www.instagram.com/leonrwdo/" target="_blank" rel="noopener noreferrer" class="ig-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771 1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149 5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607 5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
-                        <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
-                        <circle cx="16.96" cy="7.04" r="1.144"/>
-                    </svg>
                     @leonrwdo
                 </a>
                 <a href="https://www.instagram.com/melbi_bingo/" target="_blank" rel="noopener noreferrer" class="ig-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771 1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149 5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607 5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
-                        <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
-                        <circle cx="16.96" cy="7.04" r="1.144"/>
-                    </svg>
                     @melbi_bingo
                 </a>
                 <a href="https://www.instagram.com/muri_lo.fm/" target="_blank" rel="noopener noreferrer" class="ig-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771 1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.081C8.741 1.083 8.368 1.094 7.053 1.149 3.69 1.309.842 3.69.694 7.053.639 8.368.627 8.741.627 12s.012 3.632.067 4.947c.149 3.36 2.607 5.817 5.97 5.97 1.315.056 1.688.067 4.947.067s3.632-.012 4.947-.067c3.36-.149 5.817-2.607 5.97-5.97C15.632 23.373 15.259 23.385 12 23.385s-3.632-.012-4.947-.067c-3.36-.149 5.817-2.607-5.97-5.97C1.083 15.632 1.094 15.259 1.094 12s.012-3.632.067-4.947c.149-3.36 2.607 5.817 5.97-5.97C8.368 1.094 8.741 1.083 12 1.083z"/>
-                        <path d="M12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.271c-1.73 0-3.135-1.405-3.135-3.135S10.27 8.865 12 8.865s3.135 1.405 3.135 3.135-1.405 3.135-3.135 3.135z"/>
-                        <circle cx="16.96" cy="7.04" r="1.144"/>
-                    </svg>
                     @muri_lo.fm
                 </a>
             </div>
         </section>
 
         <section class="academic-info">
-            <p>Estudantes do curso de <span class="highlight-text">Licenciatura em Artes Visuais</span> da Faculdade de Artes do Paraná (FAP), UNESPAR - Campus de Curitiba II.</p>
+            <p>Estudantes do curso de <span class="highlight-text">Licenciatura em Artes Visuais</span> da <span class="highlight-text">Faculdade de Artes do Paraná (FAP), Universidade Estadual do Paraná (UNESPAR)</span> - Campus de Curitiba II.</p>
         </section>
         
         <section class="ods-info">
@@ -280,7 +240,7 @@
                 </div>
                 <div class="ods-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                        <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7,1.7-1.7,4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7,4.4,0,6.1l4,4c1.7,1.7,4.4,1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3,3.1L78.3,73.4c-1.7,1.7-4.4,1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
+                        <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7,1.7-1.7,4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7,4.4,0,6.1l4,4c1.7,1.7,4.4,1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3,3.1L78.3,73.4c-1.7,1.7-4.4-1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
                     </svg>
                     <span><strong>ODS 12:</strong> Consumo e produção responsáveis</span>
                 </div>
@@ -289,5 +249,5 @@
 
     </div>
 
-    </body>
+</body>
 </html>
