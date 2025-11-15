@@ -23,7 +23,6 @@
         }
 
         html {
-            /* Garante rolagem suave */
             scroll-behavior: smooth;
         }
 
@@ -31,13 +30,12 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.7;
             color: #333;
-            /* FUNDO NOVO: Gradiente sutil */
             background: linear-gradient(180deg, #fdfdfd 0%, #f4f4f4 100%);
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinha no topo */
+            align-items: flex-start;
             min-height: 100vh;
-            padding: 30px 20px; /* Mais respiro */
+            padding: 30px 20px;
         }
 
         /* * --- CONTAINER PRINCIPAL ---
@@ -48,7 +46,6 @@
             width: 100%;
             padding: 40px 50px;
             border-radius: 12px;
-            /* NOVO ESTILO: Borda sutil no lugar da sombra */
             border: 1px solid #e0e0e0;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         }
@@ -63,7 +60,6 @@
             margin-bottom: 30px;
         }
 
-        /* NOVO: Wrapper para centralizar H2 */
         .section-header {
             text-align: center;
             margin-top: 45px;
@@ -74,7 +70,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8em;
             color: #333;
-            /* NOVO: Sublinhado de destaque */
             display: inline-block;
             border-bottom: 3px solid #2c5b4c;
             padding-bottom: 8px;
@@ -91,6 +86,17 @@
             color: #444;
         }
         
+        /* Centralizando os parágrafos */
+        .manifesto p,
+        .academic-info p,
+        .ods-info p {
+            text-align: center;
+            max-width: 90%; /* Limita a largura para não ficar muito longo em telas grandes */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
         .intro-text {
             font-size: 1.25em;
             color: #111;
@@ -111,6 +117,7 @@
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
+            justify-items: center; /* Centraliza os itens na grade */
         }
 
         .ig-link {
@@ -121,11 +128,10 @@
             font-weight: 600;
             padding: 10px;
             border-radius: 8px;
-            /* NOVO: Transição para o toque */
             transition: transform 0.15s ease, background-color 0.2s ease;
+            text-align: center; /* Centraliza o texto do link */
         }
 
-        /* NOVO: Feedback de toque para celular */
         .ig-link:active {
             transform: scale(0.97);
             background-color: #f0f0f0;
@@ -139,12 +145,12 @@
             border-top: 1px solid #eee;
         }
 
+        /* ODS container para empilhar itens */
         .ods-container {
             display: flex;
-            gap: 20px;
-            align-items: center;
-            justify-content: start;
-            flex-wrap: wrap;
+            flex-direction: column; /* Empilha os itens verticalmente */
+            gap: 15px; /* Espaçamento entre os itens */
+            align-items: center; /* Centraliza os itens horizontalmente */
         }
         
         .ods-item {
@@ -152,12 +158,13 @@
             align-items: center;
             gap: 12px;
             font-size: 0.95em;
-            padding: 5px;
+            padding: 8px 15px; /* Mais padding para área de clique */
             border-radius: 8px;
             transition: transform 0.15s ease, background-color 0.2s ease;
+            text-align: left; /* Alinha o texto à esquerda dentro do item */
+            width: fit-content; /* Ajusta a largura ao conteúdo */
         }
         
-        /* NOVO: Feedback de toque para celular */
         .ods-item:active {
             transform: scale(0.97);
             background-color: #f0f0f0;
@@ -172,20 +179,17 @@
         /* * --- NOVO: ANIMAÇÃO DE ROLAGEM SEGURA ---
          */
          
-        /* O estado padrão (JS desabilitado) é 100% visível */
         .reveal {
             opacity: 1;
             transform: translateY(0);
             transition: opacity 0.8s ease-out, transform 0.6s ease-out;
         }
         
-        /* Se o JS estiver ativo, os elementos começam assim: */
         .js-loading .reveal {
             opacity: 0;
             transform: translateY(20px);
         }
         
-        /* O JS adiciona essa classe quando o elemento aparece na tela */
         .reveal.is-visible {
             opacity: 1;
             transform: translateY(0);
@@ -213,6 +217,9 @@
             .intro-text {
                 font-size: 1.1em;
             }
+            .ods-item {
+                padding: 8px 10px; /* Ajusta padding em telas menores */
+            }
         }
 
         @media (max-width: 480px) {
@@ -223,7 +230,7 @@
                 padding: 25px 20px;
             }
             h1 {
-                font-size: 2.2em;
+                font-size: 2.2em; 
             }
             h2 {
                 font-size: 1.4em;
@@ -233,10 +240,12 @@
                 gap: 5px;
             }
             .ods-container {
-                gap: 15px;
+                gap: 10px; /* Menor espaçamento entre ODS */
             }
             .ods-item {
                 font-size: 0.9em;
+                width: 90%; /* Ocupa mais largura em telas pequenas */
+                justify-content: center; /* Centraliza conteúdo dentro do item */
             }
             .ods-item svg {
                 width: 35px;
@@ -294,13 +303,13 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                         <path fill="#FB9D24" d="M80,80h10V40H80V80z M70,80h10V50H70V80z M60,80h10V60H60V80z M50,80h10V30H50V80z M40,80h10V50H40V80z M30,80h10V60H30V80z M20,80h10V40H20V80z M10,80h10V50H10V80z M10,30h10v10H10V30z M20,20h10v10H20V20z M30,40h10v10H30V40z M40,30h10v10H40V30z M40,10h10v10H40V10z M50,20h10v10H50V20z M60,30h10v10H60V30z M60,50h10v10H60V50z M70,20h10v10H70V20z M70,40h10v10H70V40z M80,30h10v10H80V30z M80,10h10v10H80V10z"/>
                     </svg>
-                    <span><strong>ODS 11:</strong> Cidades...</span>
+                    <span><strong>ODS 11:</strong> Cidades e comunidades sustentáveis</span>
                 </div>
                 <div class="ods-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                        <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7-1.7-1.7,4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7,4.4,0,6.1l4,4c1.7,1.7,4.4,1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3,3.1L78.3,73.4c-1.7-1.7-4.4-1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
+                        <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7,1.7-1.7,4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7,4.4,0,6.1l4,4c1.7,1.7,4.4,1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3-3.1L78.3,73.4c-1.7-1.7-4.4-1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
                     </svg>
-                    <span><strong>ODS 12:</strong> Consumo...</span>
+                    <span><strong>ODS 12:</strong> Consumo e produção responsáveis</span>
                 </div>
             </div>
         </section>
@@ -309,28 +318,21 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Remove a classe de pré-carregamento
             document.documentElement.classList.remove('js-loading');
             
-            // Seleciona todos os elementos para animar
             const revealElements = document.querySelectorAll('.reveal');
             
-            // Configura o "Observador"
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Se o elemento estiver na tela
                     if (entry.isIntersecting) {
-                        // Adiciona a classe que o torna visível
                         entry.target.classList.add('is-visible');
-                        // Para de observar o elemento (para animar só uma vez)
                         observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.1 // Ativa quando 10% do elemento estiver visível
+                threshold: 0.1 
             });
 
-            // Manda o observador "assistir" cada elemento
             revealElements.forEach(el => {
                 observer.observe(el);
             });
@@ -339,3 +341,5 @@
 
 </body>
 </html>
+```http://googleusercontent.com/generated_image_content/0
+
