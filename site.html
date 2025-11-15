@@ -84,16 +84,15 @@
             margin-bottom: 20px;
             font-size: 1.1em;
             color: #444;
+            /* text-align: left; é o padrão */
         }
         
-        /* Centralizando os parágrafos */
+        /* CORREÇÃO: Parágrafos do manifesto, acadêmico e ODS
+           Removido o 'text-align: center' daqui */
         .manifesto p,
         .academic-info p,
         .ods-info p {
-            text-align: center;
-            max-width: 90%; /* Limita a largura para não ficar muito longo em telas grandes */
-            margin-left: auto;
-            margin-right: auto;
+             /* Estão alinhados à esquerda por padrão */
         }
 
 
@@ -102,7 +101,7 @@
             color: #111;
             font-weight: 600;
             margin-bottom: 25px;
-            text-align: center;
+            text-align: center; /* Este continua centralizado */
         }
 
         .highlight-text {
@@ -117,7 +116,7 @@
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
-            justify-items: center; /* Centraliza os itens na grade */
+            justify-items: center; /* Centraliza os links */
         }
 
         .ig-link {
@@ -145,12 +144,11 @@
             border-top: 1px solid #eee;
         }
 
-        /* ODS container para empilhar itens */
         .ods-container {
             display: flex;
-            flex-direction: column; /* Empilha os itens verticalmente */
-            gap: 15px; /* Espaçamento entre os itens */
-            align-items: center; /* Centraliza os itens horizontalmente */
+            flex-direction: column; /* Empilha os itens */
+            gap: 15px; 
+            align-items: center; /* Centraliza os itens */
         }
         
         .ods-item {
@@ -158,11 +156,11 @@
             align-items: center;
             gap: 12px;
             font-size: 0.95em;
-            padding: 8px 15px; /* Mais padding para área de clique */
+            padding: 8px 15px;
             border-radius: 8px;
             transition: transform 0.15s ease, background-color 0.2s ease;
-            text-align: left; /* Alinha o texto à esquerda dentro do item */
-            width: fit-content; /* Ajusta a largura ao conteúdo */
+            text-align: left; 
+            width: fit-content; 
         }
         
         .ods-item:active {
@@ -176,7 +174,7 @@
             flex-shrink: 0;
         }
         
-        /* * --- NOVO: ANIMAÇÃO DE ROLAGEM SEGURA ---
+        /* * --- ANIMAÇÃO DE ROLAGEM ---
          */
          
         .reveal {
@@ -218,7 +216,7 @@
                 font-size: 1.1em;
             }
             .ods-item {
-                padding: 8px 10px; /* Ajusta padding em telas menores */
+                padding: 8px 10px; 
             }
         }
 
@@ -240,12 +238,12 @@
                 gap: 5px;
             }
             .ods-container {
-                gap: 10px; /* Menor espaçamento entre ODS */
+                gap: 10px; 
             }
             .ods-item {
                 font-size: 0.9em;
-                width: 90%; /* Ocupa mais largura em telas pequenas */
-                justify-content: center; /* Centraliza conteúdo dentro do item */
+                width: 90%; 
+                justify-content: center; 
             }
             .ods-item svg {
                 width: 35px;
@@ -307,7 +305,7 @@
                 </div>
                 <div class="ods-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                        <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7,1.7-1.7,4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7,4.4,0,6.1l4,4c1.7,1.7,4.4,1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3-3.1L78.3,73.4c-1.7-1.7-4.4-1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
+                        <path fill="#CF8D2A" d="M72,40.1c0-1.2-0.5-2.3-1.3-3.1c0,0-0.1-0.1-0.1-0.1L60.2,26.5c-1.7-1.7-4.4-1.7-6.1,0L43.8,36.8c-1.7-1.7-1.7-4.4,0,6.1l3.5,3.5l-8.6,8.6c-0.2,0.2-0.4,0.3-0.6,0.5c-2.4,1.8-3.4,5-2.5,7.9l-7.7,7.7c-1.7,1.7-1.7-4.4,0-6.1l4-4c1.7-1.7,4.4-1.7,6.1,0l7.7-7.7c2.9,0.9,6.1-0.1,7.9-2.5c0.2-0.2,0.3-0.4,0.5-0.6l8.6-8.6l3.5,3.5c1.7,1.7,4.4,1.7,6.1,0l10.3-10.3C71.5,39.8,72,39.6,72,39.3v0C72,39.6,72,40.1,72,40.1z M52.4,41.2c-0.8-0.8-0.8-2.1,0-2.9l10.3-10.3c0.8-0.8,2.1-0.8,2.9,0l4.3,4.3c0.8,0.8,0.8,2.1,0,2.9L59.6,45.5C58.8,46.3,57.5,46.3,56.7,45.5L52.4,41.2z M35.2,74.8c-0.8,0.8-2.1,0.8-2.9,0l-4-4c-0.8-0.8-0.8-2.1,0-2.9l7.7-7.7c2.2,1.3,4.8,1.4,7.1,0.2l-7.9,7.9C35.1,74.9,35.1,74.9,35.2,74.8z M46.5,63.4c-2.6,2.6-6.8,2.8-9.6,0.6l-0.2-0.2l7.9-7.9c-0.1,0-0.2-0.1-0.2-0.1c-2.2-2.8-1.9-6.9,0.6-9.6l8.6-8.6l2.9,2.9l-8.6,8.6C46.8,48.4,45.8,50,45.5,51.7c-0.3,1.7,0.3,3.4,1.4,4.6l-0.1,0.1C48.2,57.8,47.9,59.2,48.2,60.6c0.3,1.4-0.1,2.8-1.1,3.8C47,64.3,46.7,63.7,46.5,63.4z M90,59.9c0,1.2-0.5,2.3-1.3,3.1L78.3,73.4c-1.7-1.7-4.4-1.7-6.1,0l-4.2-4.2c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l4.2,4.2c1.7,1.7,1.7,4.4,0,6.1l-4.2,4.2c-0.8,0.8-2.1,0.8-2.9,0l-4.2-4.2c-0.8-0.8-0.8-2.1,0-2.9l4.2-4.2c-1.2,0-2.3-0.5-3.1-1.3L56.9,50.1c-1.7-1.7-1.7-4.4,0-6.1l4.2-4.2c1.7-1.7,4.4-1.7,6.1,0l11.4,11.4c0.8,0.8,1.3,1.9,1.3,3.1V60L90,59.9z"/>
                     </svg>
                     <span><strong>ODS 12:</strong> Consumo e produção responsáveis</span>
                 </div>
